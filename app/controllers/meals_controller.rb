@@ -2,11 +2,12 @@ class MealsController < ApplicationController
   before_action :set_meal, only: %i[show edit update destroy]
 
   def index
-    @meals = Meal.all
+    @meals = policy_scope(Meal).order(created_at: :asc)
   end
 
   def new
     @meal = Meal.new
+    authorize @meal
   end
 
   def show
@@ -15,6 +16,7 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.user = current_user
+    authorize @meal
     if @meal.save
       redirect_to meal_path(@meal)
     else
@@ -39,10 +41,10 @@ class MealsController < ApplicationController
 
   def set_meal
     @meal = Meal.find(params[:id])
+    authorize @meal
   end
 
   def meal_params
     params.require(:meal).permit(%i[name description category price city])
   end
 end
-
