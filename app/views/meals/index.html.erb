@@ -4,9 +4,9 @@
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card" >
           <%= link_to meal_path(meal), class: "btn btn-light" do %>
-            <p>Name: <%= meal.name.capitalize %></p>
-            <p>Description: <%= meal.description.capitalize %></p>
-            <p>Type of food: <%= meal.category.capitalize %></p>
+            <p><%= meal.name.capitalize %></p>
+            <p> <%= meal.description.capitalize %></p>
+            <p><%= meal.category.capitalize %></p>
             <p><i class="fas fa-euro-sign"></i> <%= meal.price %></p>
             <p><%= meal.city.capitalize %></p>
           <% end %>
