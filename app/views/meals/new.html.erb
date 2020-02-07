@@ -8,6 +8,7 @@
         <%= f.input :category %>
         <%= f.input :price %>
         <%= f.input :city %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Create Meal", class: "btn btn-outline-dark" %> <%= link_to "Back to cocktails", meals_path, class: "btn btn-outline-dark" %>
       <% end %>
     </div>

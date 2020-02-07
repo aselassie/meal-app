@@ -52,6 +52,6 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(%i[name description category price city])
+    params.require(:meal).permit(%i[name description category price city], photos: [])
   end
 end
