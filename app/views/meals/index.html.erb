@@ -1,6 +1,7 @@
-<div class="container">
+<!-- <div class="container">
 <div class="row">
   <% @meals.each do |meal| %>
+
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card" >
           <%= link_to meal_path(meal), class: "btn btn-light" do %>
@@ -14,4 +15,26 @@
     </div>
   <% end %>
 </div>
-<%= link_to 'Create new meal', new_meal_path, class: "btn btn-outline-dark"%>
+<%= link_to 'Create new meal', new_meal_path, class: "btn btn-outline-dark"%> -->
+
+<div class="container">
+  <div class="row">
+    <% @meals.each do |meal| %>
+      <div class="card" style="width: 18rem;">
+        <img src="https://images.unsplash.com/collection/<%= meal.name %>" alt="...">
+
+        <div class="card-body">
+          <h5 class="card-title"><%= meal.name.capitalize %></h5>
+          <p class="card-text">
+            <p> <%= meal.description.capitalize %></p>
+              <p><%= meal.category.capitalize %></p>
+              <p><i class="fas fa-euro-sign"></i> <%= meal.price %></p>
+              <p><%= meal.city.capitalize %></p>
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
