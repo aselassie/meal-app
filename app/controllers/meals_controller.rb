@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_meal, only: %i[show edit update destroy]
 
   def index
@@ -11,12 +12,15 @@ class MealsController < ApplicationController
   end
 
   def show
+    authorize @meal
   end
 
   def create
     @meal = Meal.new(meal_params)
     @meal.user = current_user
+
     authorize @meal
+
     if @meal.save
       redirect_to meal_path(@meal)
     else
@@ -25,10 +29,13 @@ class MealsController < ApplicationController
   end
 
   def edit
+    authorize @meal
   end
 
   def update
+    authorize @meal
     @meal.update(meal_params)
+
     redirect_to meal_path(@meal)
   end
 

@@ -4,5 +4,6 @@
         <h4> <%= @meal.name.capitalize %> </h4>
         <p>cooked with love by <%= @meal.user.email %></p>
       </div>
+      <%= link_to 'Edit Meal', edit_meal_path, class: "btn btn-outline-dark" %>
       <%= link_to 'Back to Meals', meals_path, class: "btn btn-outline-dark" %>
   </div>

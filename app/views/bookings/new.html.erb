@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="form-wrapper" style="width: 500px; margin: 0 auto;">
+    <h3>Booking Form</h3>
+    <%= simple_form_for :search, method: :get do |t| %>
+      <%= t.input :start %>
+      <%= t.input :finish %>
+      <%= t.submit "Order", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
