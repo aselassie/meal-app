@@ -1,0 +1,20 @@
+<br>
+<h1>My bookings</h1>
+<div class="row">
+  <% @bookings.each do |booking| %>
+<!--     <div class="card-product">
+      <% if booking.meal.photos.attached? %>
+        <%= cl_image_tag booking.meal.photo.key, height: 300, width: 300, crop: :fill %>
+      <% else %>
+        <%= image_tag "" , height: 300, width: 300, crop: :fill %>
+      <% end %> -->
+      <div class="card-product-infos">
+        <h2><%= booking.meal.name %></h2>
+        <p>Customer: <%= booking.user.email %></p>
+        <p>Booking start: <%= booking.start %></p>
+        <p>Booking end: <%= booking.end %></p>
+        <p>Description: <%= booking.meal.description %></p>
+      </div>
+  <% end %>
+</div>
+/meals/:meal_id/bookings/new
